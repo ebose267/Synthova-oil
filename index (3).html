@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synthova Oil — Premium Palm Oil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── DARK MODE (default) ─── */
+    :root {
+      --bg:      #0a0f0a;
+      --dark:    #121912;
+      --card:    #1a211a;
+      --border:  #2d3a2d;
+      --gold:    #c8860a;
+      --gold-lt: #e0a030;
+      --green:   #4a8b3c;
+      --green-lt:#6ab55a;
+      --cream:   #f0e8d8;
+      --muted:   #8a9a8a;
+      --white:   #f5f5f0;
+      --placeholder: #4a5a4a;
+      --select-bg: #121912;
+    }
+
+    /* ─── LIGHT MODE ─── */
+    body.light {
+      --bg:      #f8f9f5;
+      --dark:    #ffffff;
+      --card:    #ffffff;
+      --border:  #d8e0d0;
+      --gold:    #b07208;
+      --gold-lt: #c8860a;
+      --green:   #3d7a30;
+      --green-lt:#4a8b3c;
+      --cream:   #1a2115;
+      --muted:   #6a7a6a;
+      --white:   #1a1810;
+      --placeholder: #a0b0a0;
+      --select-bg: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none; z-index: 0; opacity: 0.6;
+    }
+
+    /* ─── THEME TOGGLE ─── */
+    .theme-toggle {
+      position: fixed;
+      top: 20px; right: 20px;
+      z-index: 100;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 8px 14px;
+      display: flex; align-items: center; gap: 8px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    .theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+    .toggle-icon-wrap {
+      position: relative;
+      width: 16px;
+      height: 16px;
+    }
+
+    .toggle-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .moon-icon {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+
+    .sun-icon {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.5);
+    }
+
+    body.light .moon-icon {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.5);
+    }
+
+    body.light .sun-icon {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      padding: 80px 24px 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse at center, rgba(200,134,10,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ─── LOGO ─── */
+    .logo-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 28px;
+      animation: logo-entrance 1s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    @keyframes logo-entrance {
+      from { opacity: 0; transform: translateY(-20px) scale(0.85); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .logo-img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      animation: logo-float 4s ease-in-out infinite;
+      filter: drop-shadow(0 8px 32px rgba(74,139,60,0.3)) drop-shadow(0 4px 16px rgba(200,134,10,0.15));
+      transition: filter 0.3s;
+      display: block;
+    }
+
+    body.light .logo-img {
+      filter: drop-shadow(0 8px 32px rgba(74,139,60,0.25)) drop-shadow(0 4px 16px rgba(176,114,8,0.1));
+    }
+
+    @keyframes logo-float {
+      0%, 100% { transform: translateY(0px);  }
+      50%       { transform: translateY(-8px); }
+    }
+
+    .logo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -15px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,134,10,0.12) 0%, transparent 70%);
+      animation: halo-pulse 4s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .logo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -25px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,139,60,0.1) 0%, transparent 70%);
+      animation: halo-pulse 4s ease-in-out infinite 0.5s;
+      z-index: -1;
+    }
+
+    @keyframes halo-pulse {
+      0%, 100% { opacity: 0.4; transform: scale(1);    }
+      50%       { opacity: 0.8; transform: scale(1.08); }
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      transition: color 0.35s;
+    }
+
+    .hero h1 span { 
+      color: var(--green); 
+      font-style: italic;
+      transition: color 0.35s;
+    }
+
+    .hero-sub {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.35s;
+    }
+
+    .tagline {
+      margin-top: 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      opacity: 0;
+      animation: tagline-fade 1.2s ease 0.6s forwards;
+    }
+
+    @keyframes tagline-fade {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .divider {
+      display: flex; align-items: center; gap: 12px;
+      max-width: 200px; margin: 32px auto;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .divider-dot { 
+      width: 6px; 
+      height: 6px; 
+      background: linear-gradient(135deg, var(--gold), var(--green)); 
+      border-radius: 50%; 
+    }
+
+    /* ─── PRICING SECTION ─── */
+    .pricing-section {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+      animation: rise 0.8s cubic-bezier(0.22,1,0.36,1) 0.2s both;
+    }
+
+    .pricing-card {
+      background: linear-gradient(135deg, rgba(200,134,10,0.1) 0%, rgba(74,139,60,0.1) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--green));
+    }
+
+    .pricing-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .pricing-subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    .price-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+
+    .price-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .price-item.featured {
+      border-color: var(--green);
+      background: linear-gradient(135deg, var(--card) 0%, rgba(74,139,60,0.05) 100%);
+    }
+
+    .price-item.featured::after {
+      content: 'POPULAR';
+      position: absolute;
+      top: -10px;
+      right: 12px;
+      background: var(--green);
+      color: white;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .size-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .size-volume {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .size-price {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .size-price span {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .order-hint {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    /* ─── FORM CARD ─── */
+    .container {
+      position: relative; z-index: 1;
+      max-width: 680px; margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.15);
+      animation: rise 0.7s cubic-bezier(0.22,1,0.36,1) 0.4s both;
+      transition: background 0.35s, border-color 0.35s;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 500;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    .field-group { display: grid; gap: 18px; margin-bottom: 32px; }
+    .field-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    @media (max-width: 520px) {
+      .card { padding: 32px 20px; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    .field { display: flex; flex-direction: column; gap: 7px; }
+
+    label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      transition: color 0.35s;
+    }
+
+    input, select, textarea {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      padding: 12px 14px;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.35s, color 0.35s;
+      outline: none;
+      width: 100%;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--placeholder); }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(74,139,60,0.12);
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a9a8a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    select option { background: var(--select-bg); }
+
+    textarea { resize: vertical; min-height: 90px; }
+
+    .qty-row { display: grid; grid-template-columns: 1fr 120px; gap: 14px; }
+
+    /* ─── PAYMENT OPTIONS ─── */
+    .payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+    @media (max-width: 420px) { .payment-grid { grid-template-columns: 1fr 1fr; } }
+
+    .pay-option { position: relative; }
+    .pay-option input[type="radio"] { position: absolute; opacity: 0; width: 0; }
+
+    .pay-label {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding: 14px 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-align: center;
+      color: var(--muted);
+      transition: all 0.2s;
+      text-transform: uppercase;
+    }
+
+    .pay-label svg { width: 22px; height: 22px; stroke: var(--muted); transition: stroke 0.2s; }
+
+    .pay-option input[type="radio"]:checked + .pay-label {
+      border-color: var(--green);
+      color: var(--green-lt);
+      background: rgba(74,139,60,0.07);
+    }
+
+    .pay-option input[type="radio"]:checked + .pay-label svg { stroke: var(--green); }
+
+    .pay-label:hover { border-color: var(--green); color: var(--white); }
+
+    /* ─── SUBMIT BUTTON ─── */
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-lt) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s, transform 0.15s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(135deg, var(--green-lt) 0%, var(--green) 100%);
+      box-shadow: 0 8px 24px rgba(74,139,60,0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:active { transform: translateY(0); }
+
+    .btn-submit:disabled {
+      opacity: 0.6; cursor: not-allowed; transform: none;
+    }
+
+    .btn-submit .btn-inner { display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+    .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── SUCCESS STATE ─── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      animation: rise 0.5s ease both;
+    }
+
+    .success-icon {
+      width: 64px; height: 64px;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .success-icon svg { width: 28px; height: 28px; stroke: var(--green); fill: none; }
+
+    .success-msg h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+
+    .success-msg p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ─── ERROR MSG ─── */
+    .error-bar {
+      display: none;
+      background: rgba(180,40,40,0.15);
+      border: 1px solid rgba(200,60,60,0.4);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #ff8080;
+      font-size: 0.85rem;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      position: relative; z-index: 1;
+      transition: color 0.35s;
+    }
+
+    footer a { color: var(--green); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+  </style>
+<base target="_blank">
+</head>
+<body>
+
+  <!-- THEME TOGGLE -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+    <div class="toggle-icon-wrap">
+      <svg class="toggle-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="toggle-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <line x1="12" y1="2" x2="12" y2="4"/>
+        <line x1="12" y1="20" x2="12" y2="22"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="2" y1="12" x2="4" y2="12"/>
+        <line x1="20" y1="12" x2="22" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </div>
+    <span id="toggleLabel">Light</span>
+  </button>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="logo-wrap">
+      <img src="https://res.cloudinary.com/dc2gwj09q/image/upload/f_auto,q_auto/file_00000000f4b871f4bf0aab23ea93084a-removebg-preview_badboh" alt="Synthova Oil logo" class="logo-img" />
+    </div>
+    <h1>Synthova <span>Oil</span></h1>
+    <p class="hero-sub">100% Pure &amp; Natural Palm Oil</p>
+    <p class="tagline">… from nature's bounty to your kitchen</p>
+    <div class="divider"><div class="divider-dot"></div></div>
+  </header>
+
+  <!-- PRICING SECTION -->
+  <section class="pricing-section">
+    <div class="pricing-card">
+      <h2 class="pricing-title">Plan Your Order</h2>
+      <p class="pricing-subtitle">Premium quality palm oil, naturally processed</p>
+      
+      <div class="pricing-grid">
+        <div class="price-item">
+          <div class="size-label">Small Size</div>
+          <div class="size-volume">75cl</div>
+          <div class="size-price">
+            <span>₦</span>1,600
+          </div>
+        </div>
+        
+        <div class="price-item featured">
+          <div class="size-label">Best Value</div>
+          <div class="size-volume">150cl</div>
+          <div class="size-price">
+            <span>₦</span>3,000
+          </div>
+        </div>
+      </div>
+      
+      <p class="order-hint">Fill the form below to place your order. Bulk discounts available!</p>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+  <main class="container">
+    <div class="card">
+
+      <!-- SUCCESS STATE -->
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h2>Order Received</h2>
+        <p>Thank you for choosing Synthova. We've received your order and will contact you shortly to confirm delivery details.</p>
+      </div>
+
+      <!-- FORM -->
+      <form id="orderForm" novalidate>
+
+        <!-- SECTION 1: CONTACT -->
+        <p class="section-label">01 — Your Details</p>
+        <div class="field-group">
+          <div class="field-row">
+            <div class="field">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Ade Okonkwo" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+234 800 000 0000" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="ade@email.com" />
+          </div>
+        </div>
+
+        <!-- SECTION 2: ORDER -->
+        <p class="section-label">02 — Your Order</p>
+        <div class="field-group">
+          <div class="qty-row">
+            <div class="field">
+              <label for="product">Product Size *</label>
+              <select id="product" name="product" required>
+                <option value="" disabled selected>Select size</option>
+                <option value="Synthova Palm Oil - 75cl (₦1,600)">75cl Bottle — ₦1,600</option>
+                <option value="Synthova Palm Oil - 150cl (₦3,000)">150cl Bottle — ₦3,000</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="quantity">Quantity *</label>
+              <input type="number" id="quantity" name="quantity" placeholder="e.g. 2" min="1" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="notes">Special Requests</label>
+            <textarea id="notes" name="notes" placeholder="e.g. bulk discount inquiry, preferred delivery time, gift packaging…"></textarea>
+          </div>
+        </div>
+
+        <!-- SECTION 3: DELIVERY -->
+        <p class="section-label">03 — Delivery Address</p>
+        <div class="field-group">
+          <div class="field">
+            <label for="address">Street Address *</label>
+            <input type="text" id="address" name="address" placeholder="12 Sapele Road" required />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="city">City *</label>
+              <input type="text" id="city" name="city" placeholder="Benin City" required />
+            </div>
+            <div class="field">
+              <label for="state">State *</label>
+              <input type="text" id="state" name="state" placeholder="Edo" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 4: PAYMENT -->
+        <p class="section-label">04 — Payment Method</p>
+        <div class="field-group">
+          <div class="payment-grid">
+
+            <div class="pay-option">
+              <input type="radio" name="payment" id="pay-transfer" value="Bank Transfer" required />
+              <label class="pay-label" for="pay-transfer">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="5" width="20" height="14" rx="2"/>
+                  <line x1="2" y1="10" x2="22" y2="10"/>
+                </svg>
+                Bank Transfer
+              </label>
+            </div>
+
+            <div class="pay-option">
+              <input type="radio" name="payment" id="pay-cash" value="Cash on Delivery" />
+              <label class="pay-label" for="pay-cash">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v2m0 8v2M9 9h4a2 2 0 010 4H9"/>
+                </svg>
+                Cash on Delivery
+              </label>
+            </div>
+
+            <div class="pay-option">
+              <input type="radio" name="payment" id="pay-pos" value="POS on Delivery" />
+              <label class="pay-label" for="pay-pos">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2"/>
+                  <line x1="9" y1="7" x2="15" y2="7"/>
+                  <line x1="9" y1="11" x2="15" y2="11"/>
+                  <line x1="9" y1="15" x2="13" y2="15"/>
+                </svg>
+                POS on Delivery
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <div class="btn-inner">
+            <div class="spinner" id="spinner"></div>
+            <span id="btnText">Place Order</span>
+          </div>
+        </button>
+
+        <div class="error-bar" id="errorBar">
+          Something went wrong. Please try again or contact us directly.
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Synthova Oil &mdash; All rights reserved &middot;
+    Questions? <a href="https://wa.me/2348158860731" target="_blank">+234 815 886 0731</a>
+  </footer>
+
+  <script>
+    // ─── THEME TOGGLE ───────────────────────────────────────────
+    const themeToggle = document.getElementById('themeToggle');
+    const toggleLabel = document.getElementById('toggleLabel');
+
+    const savedTheme = localStorage.getItem('synthova-theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light');
+      toggleLabel.textContent = 'Dark';
+    } else {
+      toggleLabel.textContent = 'Light';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      const isLight = document.body.classList.contains('light');
+      toggleLabel.textContent = isLight ? 'Dark' : 'Light';
+      localStorage.setItem('synthova-theme', isLight ? 'light' : 'dark');
+    });
+
+    // ─── FORM HANDLING ──────────────────────────────────────────
+    // *** PASTE YOUR DEPLOYED WEB APP URL BELOW ***
+    const GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyfCU8lJezoNNr27Qfzk3HmYfZ3EAM5UGAgq6dMyX_6PVdp_78TmZ5BUDlcVNBOvPCU/exec';
+
+    const form       = document.getElementById('orderForm');
+    const submitBtn  = document.getElementById('submitBtn');
+    const spinner    = document.getElementById('spinner');
+    const btnText    = document.getElementById('btnText');
+    const successMsg = document.getElementById('successMsg');
+    const errorBar   = document.getElementById('errorBar');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBar.style.display = 'none';
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Disable button & show spinner
+      submitBtn.disabled = true;
+      spinner.style.display = 'block';
+      btnText.textContent = 'Processing…';
+
+      // Collect all form fields into a plain object
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(GAS_ENDPOINT, {
+          method: 'POST',
+          // NOTE: We use text/plain to avoid a CORS preflight.
+          // Code.gs reads the raw body and parses it as JSON.
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (result.status === 'ok') {
+          // Hide form, show success message
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+
+      } catch (err) {
+        console.error('Order submission error:', err);
+        errorBar.textContent = 'Something went wrong. Please try again or contact us directly.';
+        errorBar.style.display = 'block';
+        submitBtn.disabled = false;
+        spinner.style.display = 'none';
+        btnText.textContent = 'Place Order';
+      }
+    });
+  </script>
+
+</body>
+</html>
