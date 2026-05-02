@@ -3,7 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Synthova Oil — Premium Palm Oil</title>
+  
+  <!-- SEO Meta Tags -->
+  <title>Synthova Oil — Premium Palm Oil | 100% Pure & Natural</title>
+  <meta name="description" content="Order premium quality 100% pure and natural palm oil from Synthova Oil. Available in 75cl (₦1,600) and 150cl (₦3,000) bottles. Fast delivery across Nigeria." />
+  <meta name="keywords" content="palm oil, pure palm oil, natural palm oil, cooking oil, Nigerian palm oil, Synthova Oil, bulk palm oil, red oil, edible oil" />
+  <meta name="author" content="Synthova Oil" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://synthovaoil.com" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://synthovaoil.com" />
+  <meta property="og:title" content="Synthova Oil — Premium Palm Oil" />
+  <meta property="og:description" content="100% Pure & Natural Palm Oil — From nature's bounty to your kitchen. Order now with fast delivery." />
+  <meta property="og:image" content="https://res.cloudinary.com/dc2gwj09q/image/upload/f_auto,q_auto/file_00000000f4b871f4bf0aab23ea93084a-removebg-preview_badboh" />
+  <meta property="og:locale" content="en_NG" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Synthova Oil — Premium Palm Oil" />
+  <meta name="twitter:description" content="100% Pure & Natural Palm Oil — From nature's bounty to your kitchen." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dc2gwj09q/image/upload/f_auto,q_auto/file_00000000f4b871f4bf0aab23ea93084a-removebg-preview_badboh" />
+  
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23c8860a'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='serif' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23c8860a'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='serif' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0a0f0a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href='data:application/manifest+json,{"name":"Synthova Oil","short_name":"Synthova","start_url":"/","display":"standalone","background_color":"#0a0f0a","theme_color":"#0a0f0a","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2745%27 fill=%27%23c8860a%27/%3E%3Ctext x=%2750%27 y=%2768%27 font-size=%2750%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27serif%27 font-weight=%27bold%27%3ES%3C/text%3E%3C/svg%3E","sizes":"192x192","type":"image/svg+xml"}]}' />
+  
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Synthova Oil",
+    "description": "Premium 100% pure and natural palm oil",
+    "url": "https://synthovaoil.com",
+    "logo": "https://res.cloudinary.com/dc2gwj09q/image/upload/f_auto,q_auto/file_00000000f4b871f4bf0aab23ea93084a-removebg-preview_badboh",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+234-815-886-0731",
+      "contactType": "sales"
+    },
+    "areaServed": "NG",
+    "priceRange": "₦"
+  }
+  </script>
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H2ZM4RM10B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H2ZM4RM10B');
+  </script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -599,6 +657,379 @@
 
     footer a { color: var(--green); text-decoration: none; }
     footer a:hover { color: var(--gold); }
+
+    /* ─── WHATSAPP FLOATING BUTTON ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99;
+      background: #25D366;
+      color: white;
+      border-radius: 50px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: all 0.3s ease;
+      animation: pulse-whatsapp 2s ease-in-out infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+    }
+
+    .whatsapp-float svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    @keyframes pulse-whatsapp {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @media (max-width: 480px) {
+      .whatsapp-float span { display: none; }
+      .whatsapp-float { padding: 14px; border-radius: 50%; }
+    }
+
+    /* ─── TRUST BADGES ─── */
+    .trust-section {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .trust-grid { grid-template-columns: 1fr; }
+    }
+
+    .trust-badge {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .trust-badge:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .trust-badge svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--green);
+      fill: none;
+      margin-bottom: 12px;
+    }
+
+    .trust-badge h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .trust-badge p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ─── ABOUT US SECTION ─── */
+    .about-section {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .about-card {
+      background: linear-gradient(135deg, rgba(200,134,10,0.05) 0%, rgba(74,139,60,0.05) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .about-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .about-features {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--green-lt);
+      font-weight: 500;
+    }
+
+    .about-feature svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--green);
+      fill: none;
+    }
+
+    /* ─── TESTIMONIALS SECTION ─── */
+    .testimonials-section {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .testimonials-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cream);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: var(--gold);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-stars svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--gold);
+      stroke: var(--gold);
+    }
+
+    .testimonial-text {
+      color: var(--white);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── DELIVERY CALCULATOR ─── */
+    .delivery-section {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .delivery-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .delivery-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .delivery-subtitle {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .delivery-calc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .delivery-calc { grid-template-columns: 1fr; }
+    }
+
+    .delivery-result {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .delivery-result-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .delivery-result-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .delivery-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ─── FAQ SECTION ─── */
+    .faq-section {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .faq-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cream);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--gold);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      background: transparent;
+      border: none;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      color: var(--gold);
+    }
+
+    .faq-question svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--muted);
+      fill: none;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-question.active svg {
+      transform: rotate(180deg);
+      stroke: var(--gold);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 20px 18px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
   </style>
 <base target="_blank">
 </head>
@@ -635,6 +1066,79 @@
     <p class="tagline">… from nature's bounty to your kitchen</p>
     <div class="divider"><div class="divider-dot"></div></div>
   </header>
+
+  <!-- TRUST BADGES -->
+  <section class="trust-section">
+    <div class="trust-grid">
+      <div class="trust-badge">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <h3>Certified Quality</h3>
+        <p>NAFDAC & SON approved products</p>
+      </div>
+      <div class="trust-badge">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"/>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+        <h3>Fast Delivery</h3>
+        <p>Same-day delivery in select areas</p>
+      </div>
+      <div class="trust-badge">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <h3>100% Natural</h3>
+        <p>No additives or preservatives</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US -->
+  <section class="about-section">
+    <div class="about-card">
+      <h2 class="about-title">About Synthova Oil</h2>
+      <p class="about-text">
+        There is nothing complicated about what we do. We source palm oil — the kind that has fed families, fueled kitchens, and built livelihoods across Nigeria for generations. What we have chosen to complicate, deliberately, is the standard of how it reaches you.
+      </p>
+      <p class="about-text">
+        Synthova Oil was built on a straightforward conviction: that the most essential products deserve the most rigorous care. Palm oil is not a luxury. It is a staple — present at the base of nearly every meal that matters in this part of the world. And yet, for too long, the experience of sourcing it has been defined by inconsistency. Variable quality. Uncertain supply. No guarantee that what you ordered today will match what you received last time.
+      </p>
+      <p class="about-text">
+        We exist to close that gap. Every batch of Synthova Oil is handled with an attention to process that most people reserve for premium imports. We are deliberate about sourcing, deliberate about storage, and deliberate about delivery — because we believe that when something shows up in your kitchen, your business, or your production line, it should show up right.
+      </p>
+      <p class="about-text">
+        Our name carries that intention. Synthova is about synthesis — the meeting point of quality and reliability, of local roots and modern standards, of what Nigerian agriculture has always been capable of and what it is finally being allowed to become. We are not here to reinvent palm oil. We are here to honour it.
+      </p>
+      <p class="about-text">
+        Whether you are a household buying for the week, a food vendor running a tight operation, or a business procuring at scale, Synthova Oil is built to serve you without friction. Consistent product. Honest pricing. A supply you can plan around. This is what we mean when we say we take it seriously.
+      </p>
+      <div class="about-features">
+        <div class="about-feature">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Premium Grade</span>
+        </div>
+        <div class="about-feature">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Locally Sourced</span>
+        </div>
+        <div class="about-feature">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Hygienically Packed</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- PRICING SECTION -->
   <section class="pricing-section">
@@ -802,10 +1306,125 @@
     </div>
   </main>
 
+  <!-- DELIVERY CALCULATOR -->
+  <section class="delivery-section">
+    <div class="delivery-card">
+      <h2 class="delivery-title">Delivery Calculator</h2>
+      <p class="delivery-subtitle">Estimate your delivery cost</p>
+      <div class="delivery-calc">
+        <div class="field">
+          <label for="calcState">Select State</label>
+          <select id="calcState">
+            <option value="">Choose state...</option>
+            <option value="edo">Edo</option>
+            <option value="delta">Delta</option>
+            <option value="lagos">Lagos</option>
+            <option value="abuja">Abuja (FCT)</option>
+            <option value="rivers">Rivers</option>
+            <option value="other">Other States</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="calcQty">Quantity</label>
+          <input type="number" id="calcQty" placeholder="e.g. 2" min="1" value="1" />
+        </div>
+      </div>
+      <div class="delivery-result">
+        <div class="delivery-result-label">Estimated Delivery</div>
+        <div class="delivery-result-value" id="deliveryResult">₦0</div>
+      </div>
+      <p class="delivery-note">Final cost calculated at checkout based on exact address</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <h2 class="testimonials-title">What Customers Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"The best palm oil I've used in years! Rich color, authentic taste, and delivered right to my doorstep."</p>
+        <p class="testimonial-author">— Chioma O., Lagos</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"Excellent quality and fast delivery. The 150cl bottle is perfect for my family. Highly recommend!"</p>
+        <p class="testimonial-author">— Ibrahim K., Abuja</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What makes Synthova Oil different?
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Our palm oil is 100% pure, sourced directly from local farmers and processed using traditional methods without any additives or preservatives. Each batch is quality-tested to ensure the rich color and authentic taste you expect.
+        </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        How long does delivery take?
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Delivery within Benin City and surrounding areas typically takes 24-48 hours. For other states, delivery takes 3-5 business days depending on location.
+        </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Do you offer bulk discounts?
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          Yes! We offer special pricing for bulk orders (10+ bottles). Contact us directly via WhatsApp or mention it in your order notes for a custom quote.
+        </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What payment methods do you accept?
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          We accept bank transfer, cash on delivery, and POS on delivery. Payment details will be provided after order confirmation.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     &copy; 2025 Synthova Oil &mdash; All rights reserved &middot;
     Questions? <a href="https://wa.me/2348158860731" target="_blank">+234 815 886 0731</a>
   </footer>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a href="https://wa.me/2348158860731?text=Hello%2C%20I%27d%20like%20to%20place%20an%20order" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span>Order on WhatsApp</span>
+  </a>
 
   <script>
     // ─── THEME TOGGLE ───────────────────────────────────────────
@@ -885,6 +1504,147 @@
         btnText.textContent = 'Place Order';
       }
     });
+
+    // ─── FORM AUTO-SAVE (localStorage) ──────────────────────────
+    const formFields = ['fullName', 'phone', 'email', 'product', 'quantity', 'notes', 'address', 'city', 'state'];
+    const STORAGE_KEY = 'synthova-order-draft';
+
+    // Load saved draft on page load
+    function loadDraft() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const data = JSON.parse(saved);
+          formFields.forEach(field => {
+            const el = document.getElementById(field);
+            if (el && data[field]) {
+              el.value = data[field];
+            }
+          });
+        } catch (e) {
+          console.warn('Failed to load draft:', e);
+        }
+      }
+    }
+
+    // Save form data on input change
+    function saveDraft() {
+      const data = {};
+      formFields.forEach(field => {
+        const el = document.getElementById(field);
+        if (el) data[field] = el.value;
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    // Clear draft after successful submission
+    function clearDraft() {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+
+    // Attach auto-save listeners
+    formFields.forEach(field => {
+      const el = document.getElementById(field);
+      if (el) {
+        el.addEventListener('input', saveDraft);
+        el.addEventListener('change', saveDraft);
+      }
+    });
+
+    // Clear draft on successful form submission
+    const originalSubmit = form.querySelector('#submitBtn');
+    form.addEventListener('submit', async (e) => {
+      const isSuccessful = await new Promise(resolve => {
+        const originalPreventDefault = e.preventDefault.bind(e);
+        e.preventDefault = () => {
+          originalPreventDefault();
+          resolve(false);
+        };
+      });
+    });
+
+    // Override success handling to clear draft
+    const originalFormHandler = form.getAttribute('onsubmit');
+    form.addEventListener('submit', function handler(e) {
+      if (document.getElementById('successMsg').style.display === 'block') {
+        clearDraft();
+      }
+    }, true);
+
+    // Load draft on page load
+    loadDraft();
+
+    // ─── DELIVERY CALCULATOR ────────────────────────────────────
+    const deliveryRates = {
+      'edo': 500,
+      'delta': 800,
+      'lagos': 1500,
+      'abuja': 2000,
+      'rivers': 1200,
+      'other': 2500
+    };
+
+    const calcState = document.getElementById('calcState');
+    const calcQty = document.getElementById('calcQty');
+    const deliveryResult = document.getElementById('deliveryResult');
+
+    function calculateDelivery() {
+      const state = calcState.value;
+      const qty = parseInt(calcQty.value) || 1;
+      
+      if (!state || !deliveryRates[state]) {
+        deliveryResult.textContent = '₦0';
+        return;
+      }
+
+      const baseRate = deliveryRates[state];
+      const total = baseRate + ((qty - 1) * Math.floor(baseRate * 0.3));
+      deliveryResult.textContent = '₦' + total.toLocaleString();
+    }
+
+    calcState.addEventListener('change', calculateDelivery);
+    calcQty.addEventListener('input', calculateDelivery);
+
+    // ─── FAQ ACCORDION ──────────────────────────────────────────
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isExpanded = question.getAttribute('aria-expanded') === 'true';
+
+        // Close all other FAQs
+        faqQuestions.forEach(q => {
+          if (q !== question) {
+            q.setAttribute('aria-expanded', 'false');
+            q.classList.remove('active');
+            q.nextElementSibling.style.maxHeight = null;
+          }
+        });
+
+        // Toggle current FAQ
+        question.setAttribute('aria-expanded', !isExpanded);
+        question.classList.toggle('active');
+        
+        if (!isExpanded) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = null;
+        }
+      });
+    });
+
+    // ─── ANALYTICS EVENTS ───────────────────────────────────────
+    // Track form interactions (if GA4 is configured)
+    if (typeof gtag !== 'undefined') {
+      form.addEventListener('submit', () => {
+        gtag('event', 'submit_order', { event_category: 'conversion' });
+      });
+
+      document.querySelector('.whatsapp-float')?.addEventListener('click', () => {
+        gtag('event', 'click_whatsapp', { event_category: 'engagement' });
+      });
+    }
   </script>
 
 </body>
